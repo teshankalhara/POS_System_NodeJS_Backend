@@ -5,3 +5,5 @@ const router=express.Router()
 
 router.post('/create',createCategory)
 router.get('/get',getCategory)
+
+export default router
