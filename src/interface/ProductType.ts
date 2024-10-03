@@ -6,7 +6,7 @@ interface ProductType extends Document{
     description:string,
     price:number,
     category:CategoryType,
-    createAt:Date,
+    createdAt:Date,
     updatedAt:Date
 }
 

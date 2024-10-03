@@ -14,7 +14,8 @@ app.get('/',(req:Request,res:Response)=>{
     res.send("Hello")
 })
 
-app.use('/api',CategoryRoutes)
+app.use('/category',CategoryRoutes)
+app.use('/product',CategoryRoutes)
 
 app.listen(8888,()=>{
     console.log("Server Running...")
