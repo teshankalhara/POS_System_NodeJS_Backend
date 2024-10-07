@@ -4,6 +4,8 @@ import connectDB from './config/db'
 import CategoryRoutes from './routes/CategoryRoutes'
 import ProductRouter from './routes/ProductRoutes'
 import UserRouter from './routes/UserRoutes'
+import AuthRouter from './routes/AuthRoutes'
+import { AuthMiddleware } from './middleware/AuthMiddleware'
 
 dotenv.config()
 
@@ -16,9 +18,14 @@ app.get('/',(req:Request,res:Response)=>{
     res.send("Hello")
 })
 
+app.use('/user',UserRouter)
+app.use('/user',AuthRouter)
+
+app.use(AuthMiddleware)
+
 app.use('/category',CategoryRoutes)
 app.use('/product',ProductRouter)
-app.use('/user',UserRouter)
+
 
 app.listen(8888,()=>{
     console.log("Server Running...")

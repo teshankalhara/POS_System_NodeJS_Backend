@@ -12,19 +12,17 @@ export const generateJwt = (user: UserType) => {
     return token
 }
 
-export const validateJwt=(token:string)=>{
-    jwt.verify(token,process.env.JWT_SECRET||'secret',(error,decode)=>{
-        if(error){
-            return false
-        }else{
-            return true
-        }
-    })
+export const validateJwt = (token: string) => {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret')
+    if (decoded) {
+        return true
+    }
+    return false
 }
 
-export const getUsernameFromJwt=(token:string)=>{
-    const decoded=jwt.decode(token)
-    if(!decoded){
+export const getUsernameFromJwt = (token: string) => {
+    const decoded = jwt.decode(token)
+    if (!decoded) {
         return null
     }
     return decoded.sub
