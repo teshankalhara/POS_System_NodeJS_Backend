@@ -1,6 +1,5 @@
 import { Request, Response } from "express"
 import UserModel from "../models/UserModel"
-import { json } from "stream/consumers"
 import bcrypt from 'bcryptjs'
 import { generateJwt } from "../security/jwt"
 
